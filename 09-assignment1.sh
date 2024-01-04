@@ -8,6 +8,7 @@ USERID=$(id -u)
 if [ $USERID -ne 0 ]
 then
     echo "Please switch to root user"
+    exit 1
 else
     echo "you are in root"
 fi
