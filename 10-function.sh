@@ -24,8 +24,8 @@ fi
 
 yum install httpd -y
 
-VALIDATE $? Installing HTTPD
+VALIDATE $? "Installing HTTPD"
 
 yum install nginx -y
 
-VALIDATE $? Installing NGINX
+VALIDATE $? "Installing NGINX"
