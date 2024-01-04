@@ -10,6 +10,7 @@ if [ $USERID -ne 0 ]
 then 
  
    echo "Please switch to the root user"
+   exit 1
 
 fi
 
@@ -20,11 +21,12 @@ if [ $1 -ne 0]
 then
 
    echo "$2...IS FAILURE"
+   exit 1
 
 else
 
    echo "$2...IS SUCCESS"
-
+fi
 }
 
 yum install httpd -y
