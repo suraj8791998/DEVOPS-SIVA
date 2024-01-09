@@ -14,17 +14,26 @@ then
 fi
 
 #CHECKING WHETHER PACKAGE IS INSTALLED OR NOT
-VALIDATE() {
+# VALIDATE() {
 
-    if [ $? -ne 0 ]
+#     if [ $? -ne 0 ]
 
+#     then
+#        echo "INSTALLING $2 IS FAILURE"
+
+#     else
+#        echo "INSTALLING $2 IS SUCCESS"
+# }
+
+VALIDATE(){
+    if [ $1 -ne 0 ];
     then
-       echo "INSTALLING $2 IS FAILURE"
-
+        echo "INSTALLING $2 IS FAILURE"
+        exit 1
     else
-       echo "INSTALLING $2 IS SUCCESS"
+         echo "INSTALLING $2 IS SUCCESS"
+    fi
 }
-
 #INSTALLING PACVKAGES AND CHECKING WHETHER PACKAGE IS ALREADY AVAILABLE
 for i in $@
 do
