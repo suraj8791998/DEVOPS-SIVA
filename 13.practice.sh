@@ -1,7 +1,7 @@
 #!/bin/bash
 
 USERID=$(id -u)
-$DATE=$(date +%F)
+DATE=$(date +%F)
 LOGDIR=/home/centos/shell-scirpt-log
 LOGFILE=$LOGDIR/$0.$DATE.log
 
