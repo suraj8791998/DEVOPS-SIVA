@@ -1,11 +1,9 @@
 #!/bin/bash
 
 USERID=$(id -u)
-
-R="/e[31m"
-N="/e[0m"
-G="/e[32m"
-
+$DATE=$(date +%F)
+LOGDIR=/home/centos/shell-scirpt-log
+LOGFILE=$LOGDIR/$0.$DATE.log
 
 #CHECKING USER IS ON ROOT OR NOT
 
@@ -13,7 +11,7 @@ if [ $USERID -ne 0 ]
 
 then 
 
-   echo -e " $R ERROR:: PLEASE SWITCH TO RROT USER $N"
+   echo  "ERROR:: PLEASE SWITCH TO RROT USER "
 
    exit 1
 fi
@@ -23,29 +21,29 @@ fi
 VALIDATE(){
     if [ $1 -ne 0 ];
     then
-        echo -e "INSTALLING $R $2 IS FAILURE $N"
+        echo "INSTALLING  $2 IS FAILURE"
         exit 1
     else
-         echo -e "INSTALLING $G $2 IS SUCCESS $N"
+         echo "INSTALLING $2 IS SUCCESS"
     fi
 }
 #INSTALLING PACVKAGES AND CHECKING WHETHER PACKAGE IS ALREADY AVAILABLE
 for i in $@
 do
 
-  yum list installed $i
+  yum list installed $i &>>$LOGFILE
 
   if [ $? -ne 0 ]
 
   then
     
-     echo -e "$R PACKAGE IS NOT YET INSTALLED $N"
-      yum install $i -y
+     echo  " PACKAGE IS NOT YET INSTALLED "
+      yum install $i -y &>>$LOGFILE
       VALIDATE $? $i
 
   else
 
-      echo -e "$G PACKAGE IS ALREADY INSTALLED $N"
+      echo " PACKAGE IS ALREADY INSTALLED"
     
   fi
 done
