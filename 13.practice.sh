@@ -13,7 +13,7 @@ if [ $USERID -ne 0 ]
 
 then 
 
-   echo " $R ERROR:: PLEASE SWITCH TO RROT USER $N"
+   echo -e " $R ERROR:: PLEASE SWITCH TO RROT USER $N"
 
    exit 1
 fi
@@ -23,10 +23,10 @@ fi
 VALIDATE(){
     if [ $1 -ne 0 ];
     then
-        echo "INSTALLING $R $2 IS FAILURE $N"
+        echo -e "INSTALLING $R $2 IS FAILURE $N"
         exit 1
     else
-         echo "INSTALLING $G $2 IS SUCCESS $N"
+         echo -e "INSTALLING $G $2 IS SUCCESS $N"
     fi
 }
 #INSTALLING PACVKAGES AND CHECKING WHETHER PACKAGE IS ALREADY AVAILABLE
@@ -39,13 +39,13 @@ do
 
   then
     
-      echo "$R PACKAGE IS NOT YET INSTALLED $N"
+     echo -e "$R PACKAGE IS NOT YET INSTALLED $N"
       yum install $i -y
       VALIDATE $? $i
 
   else
 
-      echo "$G PACKAGE IS ALREADY INSTALLED $N"
+      echo -e "$G PACKAGE IS ALREADY INSTALLED $N"
     
   fi
 done
