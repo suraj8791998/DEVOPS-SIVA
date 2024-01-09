@@ -7,3 +7,5 @@ LOGDIR=/home/centos/deleted-log
 LOG_STORE=$LOGDIR-$DATE
 
 FILES_TO_DELETE=$(find $LOG_FOLDER -name "*.log")
+
+echo $FILES_TO_DELETE
