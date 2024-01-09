@@ -53,3 +53,4 @@ do
       echo "PACKAGE IS ALREADY INSTALLED"
     
   fi
+done
